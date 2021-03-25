@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.4</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.star_cases</groupId>
+	<artifactId>basepom</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<java.version>11</java.version>
+
+        <!-- Application needs -->
+		<spring-cloud.version>2020.0.2</spring-cloud.version>
+
+		<!-- Testing / validation related -->
+		<gatling.highcharts.version>3.5.1</gatling.highcharts.version>
+		<spring-cloud-contract.version>3.0.1</spring-cloud-contract.version>
+
+		<!-- API doc related -->
+		<springdoc.openapi.ui.version>1.2.32</springdoc.openapi.ui.version>
+		<swagger-core.v3.version>2.1.2</swagger-core.v3.version>
+
+		<!-- DB schema/data management -->
+		<liquibase.version>4.3.1</liquibase.version>
+
+		<!-- JKube - k8s deployment artifact generation / handling -->
+		<jkube.masterUrl>https://kubernetes.default.svc:16443</jkube.masterUrl>
+		<jkube.trustStoreFile>/var/snap/microk8s/current/certs/kubelet.crt</jkube.trustStoreFile>
+		<jkube.version>1.1.1</jkube.version>
+		<jkube.recreate>true</jkube.recreate>
+		<jkube.deploy.ignoreServices>true</jkube.deploy.ignoreServices>
+		<jkube-revision-history>1</jkube-revision-history>
+
+		<!-- Docker / K8s related - build/deployment time -->
+		<docker.starcases.registry>docker-star-cases:32000</docker.starcases.registry>
+		<image.user>starcases</image.user>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-devtools</artifactId>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+</project>
