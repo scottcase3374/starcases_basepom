@@ -32,9 +32,9 @@
 		<liquibase.version>4.3.1</liquibase.version>
 
 		<!-- JKube - k8s deployment artifact generation / handling -->
+		<jkube.version>1.1.1</jkube.version>
 		<jkube.masterUrl>https://kubernetes.default.svc:16443</jkube.masterUrl>
 		<jkube.trustStoreFile>/var/snap/microk8s/current/certs/kubelet.crt</jkube.trustStoreFile>
-		<jkube.version>1.1.1</jkube.version>
 		<jkube.recreate>true</jkube.recreate>
 		<jkube.deploy.ignoreServices>true</jkube.deploy.ignoreServices>
 		<jkube-revision-history>1</jkube-revision-history>
