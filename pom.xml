@@ -2,58 +2,75 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.4</version>
-		<relativePath /> <!-- lookup parent from repository -->
-	</parent>
 
-	<groupId>com.star_cases</groupId>
+	<groupId>com.starcases</groupId>
 	<artifactId>basepom</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
 	<properties>
-		<java.version>11</java.version>
+		<!-- global -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- Application needs -->
-		<spring-cloud.version>2020.0.2</spring-cloud.version>
+		<java.version>17</java.version>
+		<compiler-plugin.version>3.8.1</compiler-plugin.version>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<!-- Docker / K8s related - build/deployment time -->
+		<docker.starcases.registry>docker.starcases.com</docker.starcases.registry>
+		<image.user>starcases</image.user>
 
-		<!-- Testing / validation related -->
-		<gatling.highcharts.version>3.5.1</gatling.highcharts.version>
-		<spring-cloud-contract.version>3.0.1</spring-cloud-contract.version>
 
+		<!-- Spring Projects -->
+		<springbboot.version>2.6.1</springbboot.version>
+		<spring-cloud.version>2021.0.0</spring-cloud.version>
 		<!-- API doc related -->
-		<springdoc.openapi.ui.version>1.2.32</springdoc.openapi.ui.version>
-		<swagger-core.v3.version>2.1.2</swagger-core.v3.version>
+		<springdoc.openapi.ui.version>1.5.9</springdoc.openapi.ui.version>
+		<swagger-core.v3.version>2.1.9</swagger-core.v3.version>
+		<!-- Testing / validation related -->
+		<gatling.highcharts.version>3.6.0</gatling.highcharts.version>
+		<spring-cloud-contract.version>3.0.3</spring-cloud-contract.version>
 
+		<!-- keycloak items -->
+		<keycloak.bom.version>14.0.0</keycloak.bom.version>
 		<!-- DB schema/data management -->
-		<liquibase.version>4.3.1</liquibase.version>
+		<liquibase.version>4.4.0</liquibase.version>
 
+		<!-- Spring K8s build integration -->
 		<!-- JKube - k8s deployment artifact generation / handling -->
-		<jkube.version>1.1.1</jkube.version>
+		<jkube.version>1.4.0</jkube.version>
 		<jkube.masterUrl>https://kubernetes.default.svc:16443</jkube.masterUrl>
 		<jkube.trustStoreFile>/var/snap/microk8s/current/certs/kubelet.crt</jkube.trustStoreFile>
 		<jkube.recreate>true</jkube.recreate>
-		<jkube.deploy.ignoreServices>true</jkube.deploy.ignoreServices>
+		<!-- <jkube.deploy.ignoreServices>true</jkube.deploy.ignoreServices> -->
 		<jkube-revision-history>1</jkube-revision-history>
+		<!-- tried rootless docker but wasn't working' -->
+		<jkube.docker.host>unix:///run/user/1000/podman/podman.sock</jkube.docker.host>
 
-		<!-- Docker / K8s related - build/deployment time -->
-		<docker.starcases.registry>docker-star-cases:32000</docker.starcases.registry>
-		<image.user>starcases</image.user>
+
+		<postgres.driver.version>42.2.23</postgres.driver.version>
+		<hibernate-reactive.version>1.0.0.CR10</hibernate-reactive.version>
+		<hibernate-jpamodelgen.version>5.6.0.Final</hibernate-jpamodelgen.version>
+		<lombok.version>1.18.20</lombok.version>
 	</properties>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-	</dependencies>
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-parent</artifactId>
+				<version>${springbboot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -64,10 +81,61 @@
 			</dependency>
 
 			<dependency>
+				<groupId>org.keycloak.bom</groupId>
+				<artifactId>keycloak-adapter-bom</artifactId>
+				<version>${keycloak.bom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<scope>runtime</scope>
+				<version>${postgres.driver.version}</version>
+			</dependency>
+
+			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-devtools</artifactId>
 			</dependency>
 
+			<dependency>
+				<groupId>io.gatling.highcharts</groupId>
+				<artifactId>gatling-charts-highcharts</artifactId>
+				<version>${gatling.highcharts.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>io.swagger.core.v3</groupId>
+				<artifactId>swagger-core</artifactId>
+				<version>${swagger-core.v3.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-ui</artifactId>
+				<version>${springdoc.openapi.ui.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hibernate.reactive</groupId>
+				<artifactId>hibernate-reactive-core</artifactId>
+				<version>${hibernate-reactive.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-jpamodelgen</artifactId>
+				<optional>true</optional>
+				<version>${hibernate-jpamodelgen.version}</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
+	<modules>
+		<module>sbpom</module>
+		<module>sbasyncpom</module>
+		<module>quarkuspom</module>
+	</modules>
 </project>
