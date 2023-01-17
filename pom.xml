@@ -8,10 +8,10 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>basepom</module>
-		<module>sbasyncpom</module>
-		<module>quarkuspom</module>
-		<module>sbcloudpom</module>
-		<module>sbbasepom</module>
+		<module>base_pom</module>
+		<module>sbasync_base_pom</module>
+		<module>quarkus_base_pom</module>
+		<module>sbcloud_base_pom</module>
+		<module>sb_base_pom</module>
 	</modules>
 </project>

@@ -5,7 +5,7 @@
     <artifactId>allpom</artifactId>
     <version>1.0.2</version>
   </parent>
-    <artifactId>basepom</artifactId>
+    <artifactId>base-pom</artifactId>
   <packaging>pom</packaging>
   	<properties>
 		<!-- global -->

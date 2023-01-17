@@ -6,7 +6,7 @@
 		<version>1.0.2</version>
 		<relativePath>../basepom</relativePath>
 	</parent>
-	<artifactId>quarkuspom</artifactId>
+	<artifactId>quarkusbasepom</artifactId>
 	<packaging>pom</packaging>
 	<properties>
 		<quarkus.kubernetes.service-type>LoadBalancer</quarkus.kubernetes.service-type>

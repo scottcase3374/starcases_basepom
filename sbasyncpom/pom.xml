@@ -9,7 +9,7 @@
 		<version>1.0.2</version>
 		<relativePath>../sbbasepom</relativePath>
 	</parent>
-	<artifactId>sbasyncpom</artifactId>
+	<artifactId>sbasyncbasepom</artifactId>
 	<packaging>pom</packaging>
 	<dependencyManagement>
 		<dependencies>

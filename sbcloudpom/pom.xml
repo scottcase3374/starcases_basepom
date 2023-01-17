@@ -9,7 +9,7 @@
 		<version>1.0.2</version>
 		<relativePath>../sbbasepom</relativePath>
 	</parent>
-	<artifactId>sbcloudpom</artifactId>
+	<artifactId>sbcloudbasepom</artifactId>
 	<packaging>pom</packaging>
 	<properties>
 		<spring-cloud.version>2022.0.0</spring-cloud.version>
