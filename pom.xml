@@ -18,13 +18,13 @@
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<!-- Docker / K8s related - build/deployment time -->
-		<docker.starcases.registry>docker.starcases.com</docker.starcases.registry>
+		<starcases.registry>registry.starcases.com</starcases.registry>
 		<image.user>starcases</image.user>
 
 
 		<!-- Spring Projects -->
-		<springbboot.version>2.7.3</springbboot.version>
-		<spring-cloud.version>2021.0.4</spring-cloud.version>
+		<springbboot.version>3.0.1</springbboot.version>
+		<spring-cloud.version>2022.0.0</spring-cloud.version>
 		<!-- API doc related -->
 		<springdoc.openapi.ui.version>1.6.11</springdoc.openapi.ui.version>
 		<swagger-core.v3.version>2.2.2</swagger-core.v3.version>
@@ -35,11 +35,11 @@
 		<!-- keycloak items -->
 		<keycloak.bom.version>19.0.2</keycloak.bom.version>
 		<!-- DB schema/data management -->
-		<liquibase.version>4.16.1</liquibase.version>
+		<liquibase.version>4.17.1</liquibase.version>
 
 		<!-- Spring K8s build integration -->
 		<!-- JKube - k8s deployment artifact generation / handling -->
-		<jkube.version>1.9.1</jkube.version>
+		<jkube.version>1.10.1</jkube.version>
 		<jkube.masterUrl>https://kubernetes.default.svc:16443</jkube.masterUrl>
 		<jkube.trustStoreFile>/var/snap/microk8s/current/certs/kubelet.crt</jkube.trustStoreFile>
 		<jkube.recreate>true</jkube.recreate>
@@ -137,5 +137,6 @@
 		<module>sbpom</module>
 		<module>sbasyncpom</module>
 		<module>quarkuspom</module>
+		<module>sbcloudpom</module>
 	</modules>
 </project>
