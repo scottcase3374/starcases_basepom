@@ -5,15 +5,18 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.starcases</groupId>
-		<artifactId>sbbasepom</artifactId>
+		<artifactId>sb-base-pom</artifactId>
 		<version>1.0.2</version>
-		<relativePath>../sbbasepom</relativePath>
+		<relativePath>../sb_base_pom</relativePath>
 	</parent>
-	<artifactId>sbcloudbasepom</artifactId>
+
+	<artifactId>sbcloud-base-pom</artifactId>
 	<packaging>pom</packaging>
+
 	<properties>
 		<spring-cloud.version>2022.0.0</spring-cloud.version>
 		<spring-cloud-contract.version>3.1.3</spring-cloud-contract.version>
+
 		<!-- Spring K8s build integration -->
 		<!-- JKube - k8s deployment artifact generation / handling -->
 		<jkube.version>1.10.1</jkube.version>
@@ -22,9 +25,11 @@
 		<jkube.recreate>true</jkube.recreate>
 		<jkube.deploy.ignoreServices>true</jkube.deploy.ignoreServices>
 		<jkube-revision-history>1</jkube-revision-history>
+
 		<!-- tried rootless docker but wasn't working' -->
-		<jkube.docker.host>unix:///run/user/1000/podman/podman.sock</jkube.docker.host>
+		<jkube.docker.host>${docker.sock}</jkube.docker.host>
 	</properties>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -34,19 +39,25 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-starter-bootstrap</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-starter-kubernetes-fabric8-all</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-starter-contract-verifier</artifactId>
-				<scope>test</scope>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-kubernetes-fabric8-all</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-contract-verifier</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>

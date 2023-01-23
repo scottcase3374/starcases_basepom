@@ -2,12 +2,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.starcases</groupId>
-		<artifactId>basepom</artifactId>
+		<artifactId>base-pom</artifactId>
 		<version>1.0.2</version>
-		<relativePath>../basepom</relativePath>
+		<relativePath>../base_pom</relativePath>
 	</parent>
-	<artifactId>quarkusbasepom</artifactId>
+
+	<artifactId>quarkus-base-pom</artifactId>
 	<packaging>pom</packaging>
+
 	<properties>
 		<quarkus.kubernetes.service-type>LoadBalancer</quarkus.kubernetes.service-type>
 		<quarkus-platform.artifact-id>quarkus-bom</quarkus-platform.artifact-id>
@@ -15,10 +17,8 @@
 		<quarkus-platform.version>2.13.1.Final</quarkus-platform.version>
 		<quarkus.native.container-runtime>podman</quarkus.native.container-runtime>
 		<quarkus.native.build.max.mem>-J-Xmx12G</quarkus.native.build.max.mem>
-		<maven.compiler.parameters>true</maven.compiler.parameters>
-		<surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
-		<failsafe-plugin.version>3.0.0-M5</failsafe-plugin.version>
 	</properties>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
