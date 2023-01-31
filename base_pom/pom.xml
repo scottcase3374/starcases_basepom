@@ -65,8 +65,8 @@
 			<dependency>
 				<groupId>org.postgresql</groupId>
 				<artifactId>postgresql</artifactId>
-				<scope>runtime</scope>
 				<version>${postgres.driver.version}</version>
+				<scope>runtime</scope>
 			</dependency>
 
 			<dependency>
