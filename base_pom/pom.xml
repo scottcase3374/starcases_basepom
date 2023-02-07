@@ -3,7 +3,7 @@
     <parent>
       <groupId>com.starcases</groupId>
       <artifactId>allpom</artifactId>
-      <version>1.0.2</version>
+      <version>1.0.3</version>
     </parent>
 
     <artifactId>base-pom</artifactId>
@@ -11,17 +11,44 @@
 
 	 <properties>
 		<!-- global -->
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-		<java.version>18</java.version>
-
-		<compiler-plugin.version>3.8.6</compiler-plugin.version>
-		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<native.maven.plugin.version>0.9.9</native.maven.plugin.version>
 		<maven.compiler.parameters>true</maven.compiler.parameters>
 		<surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
 		<failsafe-plugin.version>3.0.0-M5</failsafe-plugin.version>
+		<maven.surefire.version>2.19.1</maven.surefire.version>
+
+		<!-- FOR UNMANGED (i.e. non-springboot, etc) USE -->
+			<!-- CDI -->
+			<cdi.api.version>2.0</cdi.api.version>
+			<jboss.weld.version>5.0.1.Final</jboss.weld.version>
+
+			<!-- CLI -->
+			<picocli.version>4.6.3</picocli.version>
+
+			<!-- GRAPHING -->
+			<jgrapht.version>1.5.1</jgrapht.version>
+			<jgraphx.version>4.2.2</jgraphx.version>
+
+			<!-- METRICS -->
+			<io.dropwizard.metrics.core.version>3.1.2</io.dropwizard.metrics.core.version>
+
+			<!-- CACHE -->
+			<infinispan.version>13.0.10.Final</infinispan.version>
+
+			<!-- COLLECTIONS -->
+			<eclipse.collections.version>11.1.0</eclipse.collections.version>
+			<commons.collections4.version>4.4</commons.collections4.version>
+
+			<!-- LEXICAL ANALYSIS / PARSING -->
+			<antlr.version>4.10.1</antlr.version>
+
+			<!-- LOGGING -->
+			<slf4j.version>1.7.32</slf4j.version>
+
+			<!-- OTHER -->
+			<org.openjdk.jol.core.verion>0.16</org.openjdk.jol.core.verion>
+			<validator.api.version>2.0.1.Final</validator.api.version>
+			<apache.openwebbeans.version>2.0.26</apache.openwebbeans.version>
 
 		<!-- Docker / K8s related - build/deployment time -->
 		<starcases.registry>registry.starcases.com</starcases.registry>
@@ -42,6 +69,9 @@
 
 		<!-- Testing / validation related -->
 		<gatling.highcharts.version>3.8.4</gatling.highcharts.version>
+		<junit.jupiter.version>5.3.1</junit.jupiter.version>
+		<junit.platform.surefire.version>1.0.1</junit.platform.surefire.version>
+		<mockito.version>2.23.0</mockito.version>
 
 		<lombok.version>1.18.24</lombok.version>
 	 </properties>
@@ -90,6 +120,7 @@
 				<version>${hibernate-jpamodelgen.version}</version>
 				<scope>provided</scope>
 			</dependency>
+
 		</dependencies>
 	 </dependencyManagement>
  </project>
