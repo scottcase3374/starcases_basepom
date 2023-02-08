@@ -33,7 +33,7 @@
 			<io.dropwizard.metrics.core.version>3.1.2</io.dropwizard.metrics.core.version>
 
 			<!-- CACHE -->
-			<infinispan.version>13.0.10.Final</infinispan.version>
+			<infinispan.version>14.0.6.Final</infinispan.version>
 
 			<!-- COLLECTIONS -->
 			<eclipse.collections.version>11.1.0</eclipse.collections.version>
