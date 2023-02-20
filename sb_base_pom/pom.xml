@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.starcases</groupId>
 		<artifactId>base-pom</artifactId>
-		<version>1.0.3</version>
+		<version>1.0.4</version>
 		<relativePath>../base_pom</relativePath>
 	</parent>
 
@@ -19,7 +19,9 @@
 
 		<!-- API doc related -->
 		<springdoc.openapi.ui.version>1.6.11</springdoc.openapi.ui.version>
+		<picocli.springboot.version>4.7.1</picocli.springboot.version>
 	</properties>
+
 
 	<dependencyManagement>
 		<dependencies>
@@ -43,6 +45,63 @@
 				<groupId>io.swagger.core.v3</groupId>
 				<artifactId>swagger-core</artifactId>
 				<version>${swagger-core.v3.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>info.picocli</groupId>
+				<artifactId>picocli-spring-boot-starter</artifactId>
+				<version>${picocli.springboot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>info.picocli</groupId>
+				<artifactId>picocli-codegen</artifactId>
+				<version>${picocli.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>info.picocli</groupId>
+				<artifactId>picocli</artifactId>
+				<version>${picocli.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.antlr</groupId>
+				<artifactId>antlr4</artifactId>
+				<version>${antlr.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.antlr</groupId>
+				<artifactId>antlr4-runtime</artifactId>
+				<version>${antlr.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.collections</groupId>
+				<artifactId>eclipse-collections</artifactId>
+				<version>${eclipse.collections.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jgrapht</groupId>
+				<artifactId>jgrapht-core</artifactId>
+				<version>${jgrapht.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.vlsi.mxgraph</groupId>
+				<artifactId>jgraphx</artifactId>
+				<version>${jgraphx.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jgrapht</groupId>
+				<artifactId>jgrapht-ext</artifactId>
+				<version>${jgrapht.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>jakarta.validation</groupId>
+				<artifactId>jakarta.validation-api</artifactId>
+				<version>${validator.api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.infinispan</groupId>
+				<artifactId>infinispan-cdi-parent</artifactId>
+				<version>${infinispan.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

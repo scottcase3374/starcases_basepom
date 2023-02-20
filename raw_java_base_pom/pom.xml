@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.starcases</groupId>
 		<artifactId>base-pom</artifactId>
-		<version>1.0.3</version>
+		<version>1.0.4</version>
 		<relativePath>../base_pom</relativePath>
 	</parent>
 	<artifactId>raw-java-base-pom</artifactId>
@@ -55,8 +55,8 @@
 				<version>${jgraphx.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>javax.validation</groupId>
-				<artifactId>validation-api</artifactId>
+				<groupId>jakarta.validation</groupId>
+				<artifactId>jakarta.validation-api</artifactId>
 				<version>${validator.api.version}</version>
 			</dependency>
 			<dependency>
@@ -78,6 +78,11 @@
 				<groupId>org.slf4j</groupId>
 				<artifactId>jcl-over-slf4j</artifactId>
 				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.weld.se</groupId>
+				<artifactId>weld-se-shaded</artifactId>
+				<version>${jboss.weld.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
