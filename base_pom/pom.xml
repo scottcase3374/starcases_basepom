@@ -16,7 +16,7 @@
 			<jboss.weld.version>5.0.1.Final</jboss.weld.version>
 
 			<!-- CLI -->
-			<picocli.version>4.6.3</picocli.version>
+			<picocli.version>4.7.1</picocli.version>
 
 			<!-- GRAPHING -->
 			<jgrapht.version>1.5.1</jgrapht.version>
@@ -33,7 +33,7 @@
 			<commons.collections4.version>4.4</commons.collections4.version>
 
 			<!-- LEXICAL ANALYSIS / PARSING -->
-			<antlr.version>4.11.1</antlr.version>
+			<antlr.version>4.12</antlr.version>
 
 			<!-- LOGGING -->
 			<slf4j.version>2.0.6</slf4j.version>
@@ -42,6 +42,7 @@
 			<org.openjdk.jol.core.verion>0.16</org.openjdk.jol.core.verion>
 			<validator.api.version>3.0.2</validator.api.version>
 			<apache.openwebbeans.version>2.0.26</apache.openwebbeans.version>
+			<netty.version>4.1.89.Final</netty.version>
 
 		<!-- Docker / K8s related - build/deployment time -->
 		<starcases.registry>registry.starcases.com</starcases.registry>
@@ -66,7 +67,7 @@
 		<junit.platform.surefire.version>1.0.1</junit.platform.surefire.version>
 		<mockito.bom.version>5.1.1</mockito.bom.version>
 
-		<lombok.version>1.18.24</lombok.version>
+		<lombok.version>1.18.26</lombok.version>
 	</properties>
 
 	<dependencyManagement>
@@ -122,6 +123,12 @@
 				<optional>true</optional>
 				<version>${hibernate-jpamodelgen.version}</version>
 				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-all</artifactId>
+				<version>${netty.version}</version>
 			</dependency>
 
 		</dependencies>
