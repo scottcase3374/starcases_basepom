@@ -133,6 +133,18 @@
 				<version>${netty.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>${google.gson.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.zeromq</groupId>
+				<artifactId>jeromq</artifactId>
+				<version>${zeromq.version}</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
