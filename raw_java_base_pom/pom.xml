@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.starcases</groupId>
 		<artifactId>base-pom</artifactId>
-		<version>1.0.5</version>
+		<version>1.0.6.1</version>
 		<relativePath>../base_pom</relativePath>
 	</parent>
 	<artifactId>raw-java-base-pom</artifactId>
@@ -60,9 +60,11 @@
 				<version>${validator.api.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>io.dropwizard.metrics</groupId>
-				<artifactId>metrics-core</artifactId>
-				<version>${io.dropwizard.metrics.core.version}</version>
+			    <groupId>io.micrometer</groupId>
+			    <artifactId>micrometer-bom</artifactId>
+			    <version>${micrometer.version}</version>
+			    <type>pom</type>
+			    <scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.openjdk.jol</groupId>
@@ -84,6 +86,16 @@
 				<artifactId>weld-se-shaded</artifactId>
 				<version>${jboss.weld.version}</version>
 			</dependency>
+					<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${google.gson.version}}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zeromq</groupId>
+			<artifactId>jeromq</artifactId>
+			<version>${zeromq.version}}</version>
+		</dependency>
 		</dependencies>
 	</dependencyManagement>
 </project>
