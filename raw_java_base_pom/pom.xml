@@ -87,14 +87,15 @@
 				<version>${jboss.weld.version}</version>
 			</dependency>
 
-			<dependency>
+<!--			<dependency>
 				<groupId>com.google.code.gson</groupId>
 				<artifactId>gson</artifactId>
+				<version></version>
 			</dependency>
 			<dependency>
 				<groupId>org.zeromq</groupId>
 				<artifactId>jeromq</artifactId>
-			</dependency>
+			</dependency>-->
 		</dependencies>
 	</dependencyManagement>
 </project>
