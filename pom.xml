@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.starcases</groupId>
 	<artifactId>allpom</artifactId>
-	<version>1.0.7</version>
+	<version>1.0.7.2</version>
 	<packaging>pom</packaging>
 	<properties>
 		<java.version>18</java.version>
@@ -15,12 +15,13 @@
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 
-		<maven.version>3.9.0</maven.version>
-		<maven.compiler-plugin.version>${maven.version}</maven.compiler-plugin.version>
+		<maven.version>3.9.2</maven.version>
+		<maven.compiler-plugin.version>3.11.0</maven.compiler-plugin.version>
 
-		<maven.failsafe-plugin.version>3.0.0-M9</maven.failsafe-plugin.version>
-		<maven.surefire.version>3.0.0-M9</maven.surefire.version>
-		<maven.native.plugin.version>0.9.20</maven.native.plugin.version>
+		<maven.failsafe-plugin.version>3.1.2</maven.failsafe-plugin.version>
+		<maven.surefire.version>3.1.2</maven.surefire.version>
+		<maven.native.plugin.version>0.9.22</maven.native.plugin.version>
+		<maven.jlink.plugin.version>3.1.0</maven.jlink.plugin.version>
 
 	</properties>
 
